@@ -1,0 +1,17 @@
+import React, { useEffect } from "react";
+import { fetchVenues } from "./api/backend";
+
+function App() {
+  useEffect(() => {
+    fetchVenues().then(data => console.log("Venues:", data));
+  }, []);
+
+  return (
+    <div>
+      <h1>React is connected!</h1>
+      <p>Check the console for venues data from backend.</p>
+    </div>
+  );
+}
+
+export default App;
