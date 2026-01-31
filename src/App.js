@@ -1,22 +1,41 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
 import LecturerForm from "./components/LecturerForm";
 import StudentCalendar from "./components/StudentCalendar";
+import Header from "./components/Header";
+import "./cards.css"; // landing page card styles
 
-function App() {
+// Landing page with role selection
+function Landing() {
+  const navigate = useNavigate();
+
+  return (
+    <div className="container">
+      <div className="card role-grid">
+        <div className="role-card" onClick={() => navigate("/lecturer")}>
+          <h3>Lecturer</h3>
+          <p>Schedule and manage lectures</p>
+        </div>
+
+        <div className="role-card" onClick={() => navigate("/student")}>
+          <h3>Student</h3>
+          <p>View lecture timetable</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Main App component
+export default function App() {
   return (
     <Router>
-      <nav>
-        <Link to="/lecturer">Lecturer</Link> | 
-        <Link to="/student">Student</Link>
-      </nav>
+      <Header />
       <Routes>
+        <Route path="/" element={<Landing />} />
         <Route path="/lecturer" element={<LecturerForm />} />
         <Route path="/student" element={<StudentCalendar />} />
-        <Route path="*" element={<div>Welcome to Science Scheduler</div>} />
       </Routes>
     </Router>
   );
 }
-
-export default App;

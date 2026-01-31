@@ -1,0 +1,42 @@
+.lecturer-container {
+  padding: 24px;
+}
+
+.lecture-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.lecture-form input,
+.lecture-form select,
+.lecture-form button {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.lecture-form button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.lecture-form button:hover {
+  background-color: var(--green-mid);
+}
+
+.lecture-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.lecture-card {
+  padding: 16px;
+  background-color: var(--card);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./StudentCalendar.css";
 
 export default function StudentCalendar() {
   const [lectures, setLectures] = useState([]);
@@ -19,27 +20,28 @@ export default function StudentCalendar() {
   );
 
   return (
+<div className="student-container">
     <div style={{ padding: "20px", maxWidth: "800px", margin: "auto" }}>
       <h2>Student Lecture Schedule</h2>
       <p>Filter lectures by department and level</p>
 
       {/* Filters */}
-      <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
-        <select value={department} onChange={e => setDepartment(e.target.value)}>
-          <option value="">All Departments</option>
-          <option value="CS">Computer Science</option>
-          <option value="PHY">Physics</option>
-          <option value="CHEM">Chemistry</option>
-        </select>
+      <div className="filters">
+  <select value={department} onChange={e => setDepartment(e.target.value)}>
+    <option value="">All Departments</option>
+    <option value="CS">Computer Science</option>
+    <option value="PHY">Physics</option>
+    <option value="CHEM">Chemistry</option>
+  </select>
 
-        <select value={level} onChange={e => setLevel(e.target.value)}>
-          <option value="">All Levels</option>
-          <option value="100">100</option>
-          <option value="200">200</option>
-          <option value="300">300</option>
-          <option value="400">400</option>
-        </select>
-      </div>
+  <select value={level} onChange={e => setLevel(e.target.value)}>
+    <option value="">All Levels</option>
+    <option value="100">100</option>
+    <option value="200">200</option>
+    <option value="300">300</option>
+    <option value="400">400</option>
+  </select>
+</div>
 
       {/* Lectures */}
       {filteredLectures.length === 0 ? (
@@ -64,6 +66,14 @@ export default function StudentCalendar() {
           </div>
         ))
       )}
+
+    	<div className="lecture-cards">
+  {filteredLectures.map((lec, idx) => (
+    <div key={idx} className="lecture-card">
+      <p><strong>{lec.course}</strong> ({lec.department} - {lec.level})</p>
+      <p>{lec.venue} | {lec.date} | {lec.start_time} - {lec.end_time}h</p>
     </div>
+  ))}
+</div>
   );
 }

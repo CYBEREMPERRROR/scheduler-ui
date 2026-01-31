@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchVenues } from "../api"; // if api.js is one level above components
+import "./LecturerForm.css";
 
 export default function LecturerForm() {
   const [venues, setVenues] = useState([]);
@@ -65,6 +66,7 @@ export default function LecturerForm() {
   };
 
   return (
+<div className="lecturer-container">
     <form onSubmit={handleSubmit}>
       <h2>Schedule Lecture</h2>
 
@@ -158,4 +160,13 @@ export default function LecturerForm() {
       <button type="submit">Schedule Lecture</button>
     </form>
   );
+<h3>Current Lectures</h3>
+<div className="lecture-cards">
+  {lectures.map((lec, idx) => (
+    <div key={idx} className="lecture-card">
+      <p><strong>{lec.course}</strong> ({lec.department} - {lec.level})</p>
+      <p>{lec.venue} | {lec.date} | {lec.start_time} - {lec.end_time}h</p>
+    </div>
+  ))}
+</div>
 }
