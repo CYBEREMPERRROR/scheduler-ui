@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchVenues } from "../api"; // assuming fetchVenues is correct
+import { fetchVenues } from "../api"; // if api.js is one level above components
 
 export default function LecturerForm() {
   const [venues, setVenues] = useState([]);
@@ -30,7 +30,7 @@ export default function LecturerForm() {
 
     try {
       const res = await fetch(
-        "https://YOUR-BACKEND.onrender.com/api/lecturer/lectures",
+        "https://science-scheduler.onrender.com/api/lecturer/lectures",
         {
           method: "POST",
           headers: {
