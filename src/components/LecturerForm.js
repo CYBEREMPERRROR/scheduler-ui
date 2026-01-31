@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchVenues } from "../api";
-//import "./LecturerForm.css";
+import "./LecturerForm.css";
 
 export default function LecturerForm() {
   const [venues, setVenues] = useState([]);
@@ -14,6 +14,7 @@ export default function LecturerForm() {
     department: "",
     level: "",
   });
+const lectures = []; // temporary dummy to prevent runtime crash
 
   // Fetch venues on mount
   useEffect(() => {

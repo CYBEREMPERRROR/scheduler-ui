@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-route
 import LecturerForm from "./components/LecturerForm";
 import StudentCalendar from "./components/StudentCalendar";
 import Header from "./components/Header";
-//import "./cards.css"; // landing page card styles
+import "./cards.css"; // landing page card styles
 
 // Landing page with role selection
 function Landing() {

@@ -1,4 +1,27 @@
+:root {
+  /* Primary theme */
+  --primary: #0B3D2E;
+  --accent: #C9A227;
+
+  /* Extended greens */
+  --green-mid: #145a43;
+  --green-light: #1f7a5a;
+
+  /* Backgrounds */
+  --bg: #F4F6F5;
+  --card: #FFFFFF;
+
+  /* Text */
+  --text: #1A1A1A;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
 body {
-  background: white;
-  color: black;
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
 }

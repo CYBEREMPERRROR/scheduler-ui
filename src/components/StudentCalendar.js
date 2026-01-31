@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-//import "./StudentCalendar.css";
+import "./StudentCalendar.css";
 
 export default function StudentCalendar() {
   const [lectures, setLectures] = useState([]);
