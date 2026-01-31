@@ -11,7 +11,8 @@
 }
 
 .logo {
-  height: 48px;
+  width: 120px;
+  height: auto;
 }
 
 .app-header h1 {

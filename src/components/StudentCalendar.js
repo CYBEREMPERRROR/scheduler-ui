@@ -20,60 +20,40 @@ export default function StudentCalendar() {
   );
 
   return (
-<div className="student-container">
-    <div style={{ padding: "20px", maxWidth: "800px", margin: "auto" }}>
-      <h2>Student Lecture Schedule</h2>
-      <p>Filter lectures by department and level</p>
+  <div className="student-container" style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
+    <h2>Student Lecture Schedule</h2>
+    <p>Filter lectures by department and level</p>
 
-      {/* Filters */}
-      <div className="filters">
-  <select value={department} onChange={e => setDepartment(e.target.value)}>
-    <option value="">All Departments</option>
-    <option value="CS">Computer Science</option>
-    <option value="PHY">Physics</option>
-    <option value="CHEM">Chemistry</option>
-  </select>
+    {/* Filters */}
+    <div className="filters" style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
+      <select value={department} onChange={e => setDepartment(e.target.value)}>
+        <option value="">All Departments</option>
+        <option value="CS">Computer Science</option>
+        <option value="PHY">Physics</option>
+        <option value="CHEM">Chemistry</option>
+      </select>
 
-  <select value={level} onChange={e => setLevel(e.target.value)}>
-    <option value="">All Levels</option>
-    <option value="100">100</option>
-    <option value="200">200</option>
-    <option value="300">300</option>
-    <option value="400">400</option>
-  </select>
-</div>
-
-      {/* Lectures */}
-      {filteredLectures.length === 0 ? (
-        <p>No lectures found.</p>
-      ) : (
-        filteredLectures.map(lec => (
-          <div
-            key={lec.id}
-            style={{
-              border: "1px solid #ddd",
-              padding: "12px",
-              marginBottom: "10px",
-              borderRadius: "6px"
-            }}
-          >
-            <strong>{lec.course}</strong>
-            <p>{lec.date}</p>
-            <p>
-              {lec.start} – {lec.end} | {lec.venue}
-            </p>
-            <small>{lec.department} Level {lec.level}</small>
-          </div>
-        ))
-      )}
-
-    	<div className="lecture-cards">
-  {filteredLectures.map((lec, idx) => (
-    <div key={idx} className="lecture-card">
-      <p><strong>{lec.course}</strong> ({lec.department} - {lec.level})</p>
-      <p>{lec.venue} | {lec.date} | {lec.start_time} - {lec.end_time}h</p>
+      <select value={level} onChange={e => setLevel(e.target.value)}>
+        <option value="">All Levels</option>
+        <option value="100">100</option>
+        <option value="200">200</option>
+        <option value="300">300</option>
+        <option value="400">400</option>
+      </select>
     </div>
-  ))}
-</div>
-  );
-}
+
+    {/* Lectures */}
+    {filteredLectures.length === 0 ? (
+      <p>No lectures found.</p>
+    ) : (
+      <div className="lecture-cards">
+        {filteredLectures.map((lec, idx) => (
+          <div key={idx} className="lecture-card">
+            <p><strong>{lec.course}</strong> ({lec.department} - Level {lec.level})</p>
+            <p>{lec.venue} | {lec.date} | {lec.start} – {lec.end}h</p>
+          </div>
+        ))}
+      </div>
+    )}
+  </div>
+);

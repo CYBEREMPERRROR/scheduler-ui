@@ -66,7 +66,7 @@ export default function LecturerForm() {
   };
 
   return (
-<div className="lecturer-container">
+  <div className="lecturer-container">
     <form onSubmit={handleSubmit}>
       <h2>Schedule Lecture</h2>
 
@@ -83,90 +83,50 @@ export default function LecturerForm() {
 
       <label>
         Venue:
-        <select
-          name="venue"
-          value={form.venue}
-          onChange={handleChange}
-          required
-        >
-          <option value="">Select a venue</option>
-          {venues.map((v) => (
-            <option key={v.name} value={v.name}>
-              {v.name} (Capacity: {v.capacity})
-            </option>
+        <select name="venue" value={form.venue} onChange={handleChange} required>
+          {venues.map((v, i) => (
+            <option key={i} value={v}>{v}</option>
           ))}
         </select>
       </label>
 
       <label>
-        Date:
-        <input
-          type="date"
-          name="date"
-          value={form.date}
-          onChange={handleChange}
-          required
-        />
-      </label>
-
-      <label>
-        Start Time (hour):
-        <input
-          type="number"
-          name="start_time"
-          value={form.start_time}
-          onChange={handleChange}
-          required
-          min="0"
-          max="23"
-        />
-      </label>
-
-      <label>
-        End Time (hour):
-        <input
-          type="number"
-          name="end_time"
-          value={form.end_time}
-          onChange={handleChange}
-          required
-          min="0"
-          max="23"
-        />
-      </label>
-
-      <label>
         Department:
-        <input
-          type="text"
-          name="department"
-          value={form.department}
-          onChange={handleChange}
-          required
-        />
+        <input type="text" name="department" value={form.department} onChange={handleChange} required />
       </label>
 
       <label>
         Level:
-        <input
-          type="text"
-          name="level"
-          value={form.level}
-          onChange={handleChange}
-          required
-        />
+        <input type="text" name="level" value={form.level} onChange={handleChange} required />
+      </label>
+
+      <label>
+        Date:
+        <input type="date" name="date" value={form.date} onChange={handleChange} required />
+      </label>
+
+      <label>
+        Start Time:
+        <input type="number" name="start_time" value={form.start_time} onChange={handleChange} required />
+      </label>
+
+      <label>
+        End Time:
+        <input type="number" name="end_time" value={form.end_time} onChange={handleChange} required />
       </label>
 
       <button type="submit">Schedule Lecture</button>
     </form>
-  );
-<h3>Current Lectures</h3>
-<div className="lecture-cards">
-  {lectures.map((lec, idx) => (
-    <div key={idx} className="lecture-card">
-      <p><strong>{lec.course}</strong> ({lec.department} - {lec.level})</p>
-      <p>{lec.venue} | {lec.date} | {lec.start_time} - {lec.end_time}h</p>
+
+    {/* Display current lectures */}
+    <h3>Current Lectures</h3>
+    <div className="lecture-cards">
+      {lectures.map((lec, idx) => (
+        <div key={idx} className="lecture-card">
+          <p><strong>{lec.course}</strong> ({lec.department} - {lec.level})</p>
+          <p>{lec.venue} | {lec.date} | {lec.start_time} - {lec.end_time}h</p>
+        </div>
+      ))}
     </div>
-  ))}
-</div>
-}
+  </div>
+);
