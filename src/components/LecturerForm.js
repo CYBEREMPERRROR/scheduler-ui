@@ -129,7 +129,5 @@ export default function LecturerForm() {
       <p>
         {lec.venue} | {lec.date} | {lec.start_time} – {lec.end_time}h
       </p>
-    </div>
   ))}
-</div>
-);
+
