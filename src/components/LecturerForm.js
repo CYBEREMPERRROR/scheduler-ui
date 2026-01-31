@@ -14,7 +14,6 @@ export default function LecturerForm() {
     department: "",
     level: "",
   });
-const lectures = []; // temporary dummy to prevent runtime crash
 
   // Fetch venues on mount
   useEffect(() => {
