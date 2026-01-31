@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchVenues } from "../api";
-import "./LecturerForm.css";
+//import "./LecturerForm.css";
 
 export default function LecturerForm() {
   const [venues, setVenues] = useState([]);

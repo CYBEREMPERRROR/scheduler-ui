@@ -3,29 +3,13 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-route
 import LecturerForm from "./components/LecturerForm";
 import StudentCalendar from "./components/StudentCalendar";
 import Header from "./components/Header";
-//import "./cards.css"; // landing page card styles
+import "./cards.css"; // landing page card styles
 
 // Landing page with role selection
 function Landing() {
   const navigate = useNavigate();
 
-  return (
-    <div className="container">
-      <div className="card role-grid">
-        <div className="role-card" onClick={() => navigate("/lecturer")}>
-          <h3>Lecturer</h3>
-          <p>Schedule and manage lectures</p>
-        </div>
-
-        <div className="role-card" onClick={() => navigate("/student")}>
-          <h3>Student</h3>
-          <p>View lecture timetable</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
+  
 // Main App component
 export default function App() {
   return (

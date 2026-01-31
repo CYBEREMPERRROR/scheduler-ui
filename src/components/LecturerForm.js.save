@@ -1,0 +1,70 @@
+import React, { useState, useEffect } from "react";
+import { scheduleLecture, fetchVenues } from "../api"; // make sure this works
+import "./LecturerForm.css"; // new CSS file for styling
+
+export default function LecturerForm() {
+  const [venues, setVenues] = useState([]);
+  const [form, setForm] = useState({
+    course: "",
+    venue: "",
+    date: "",
+    start: "",
+    end: "",
+    department: "",
+    level: ""
+  });
+  const [lectures, setLectures] = useState([]);
+
+  useEffect(() => {
+    fetchVenues().then(setVenues);
+    fetch("/api/lectures") // fetch existing lectures
+      .then(res => res.json())
+      .then(setLectures);
+  }, []);
+
+  const handleChange = e => {
+    setForm({...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    try {
+      await scheduleLecture(form); // your API call
+      setLectures([...lectures, form]); // update UI
+      alert("Lecture scheduled successfully");
+      setForm({ course: "", venue: "", date: "", start: "", end: "", department: "", level: ""});
+    } catch (err) {
+      console.error(err);
+      alert("Failed to schedule lecture");
+    }
+  };
+
+  return (
+    <div className="lecturer-container">
+      <h2>Schedule a Lecture</h2>
+      <form className="lecture-form" onSubmit={handleSubmit}>
+        <input name="course" value={form.course} onChange={handleChange} placeholder="Course Name" required/>
+        <select name="venue" value={form.venue} onChange={handleChange} required>
+          <option value="">Select Venue</option>
+          {venues.map(v => <option key={v.id} value={v.name}>{v.name}</option>)}
+        </select>
+        <input type="date" name="date" value={form.date} onChange={handleChange} required/>
+        <input type="number" name="start" value={form.start} onChange={handleChange} placeholder="Start Hour" required/>
+        <input type="number" name="end" value={form.end} onChange={handleChange} placeholder="End Hour" required/>
+        <input name="department" value={form.department} onChange={handleChange} placeholder="Department" required/>
+        <input name="level" value={form.level} onChange={handleChange} placeholder="Level" required/>
+        <button type="submit">Schedule Lecture</button>
+      </form>
+
+      <h3>Current Lectures</h3>
+      <div className="lecture-cards">
+        {lectures.map((lec, idx) => (
+          <div key={idx} className="lecture-card">
+            <p><strong>{lec.course}</strong> ({lec.department} - {lec.level})</p>
+            <p>{lec.venue} | {lec.date} | {lec.start} - {lec.end}h</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
