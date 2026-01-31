@@ -20,12 +20,18 @@ export default function StudentCalendar() {
   );
 
   return (
-  <div className="student-container" style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
+  <div
+    className="student-container"
+    style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}
+  >
     <h2>Student Lecture Schedule</h2>
     <p>Filter lectures by department and level</p>
 
     {/* Filters */}
-    <div className="filters" style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
+    <div
+      className="filters"
+      style={{ display: "flex", gap: "10px", marginBottom: "20px" }}
+    >
       <select value={department} onChange={e => setDepartment(e.target.value)}>
         <option value="">All Departments</option>
         <option value="CS">Computer Science</option>
@@ -43,21 +49,21 @@ export default function StudentCalendar() {
     </div>
 
     {/* Lectures */}
-{filteredLectures.length === 0 ? (
-  <p>No lectures found.</p>
-) : (
-  <div className="lecture-cards">
-    {filteredLectures.map((lec, idx) => (
-      <div key={idx} className="lecture-card">
-        <p>
-          <strong>{lec.course}</strong> ({lec.department} - Level {lec.level})
-        </p>
-        <p>
-          {lec.venue} | {lec.date} | {lec.start} – {lec.end}h
-        </p>
+    {filteredLectures.length === 0 ? (
+      <p>No lectures found.</p>
+    ) : (
+      <div className="lecture-cards">
+        {filteredLectures.map((lec, idx) => (
+          <div key={idx} className="lecture-card">
+            <p>
+              <strong>{lec.course}</strong> ({lec.department} - Level {lec.level})
+            </p>
+            <p>
+              {lec.venue} | {lec.date} | {lec.start} – {lec.end}h
+            </p>
+          </div>
+        ))}
       </div>
-    ))}
+    )}
   </div>
-)}
 );
-
