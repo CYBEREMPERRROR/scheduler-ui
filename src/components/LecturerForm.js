@@ -119,14 +119,18 @@ export default function LecturerForm() {
     </form>
 
     {/* Display current lectures */}
-    <h3>Current Lectures</h3>
-    <div className="lecture-cards">
-      {lectures.map((lec, idx) => (
-        <div key={idx} className="lecture-card">
-          <p><strong>{lec.course}</strong> ({lec.department} - {lec.level})</p>
-          <p>{lec.venue} | {lec.date} | {lec.start_time} - {lec.end_time}h</p>
-        </div>
-      ))}
+<h3>Current Lectures</h3>
+<div className="lecture-cards">
+  {lectures.map((lec, idx) => (
+    <div key={idx} className="lecture-card">
+      <p>
+        <strong>{lec.course}</strong> ({lec.department} - Level {lec.level})
+      </p>
+      <p>
+        {lec.venue} | {lec.date} | {lec.start_time} – {lec.end_time}h
+      </p>
     </div>
+  ))}
+</div>
   </div>
 );

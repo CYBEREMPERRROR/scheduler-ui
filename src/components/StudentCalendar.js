@@ -43,17 +43,19 @@ export default function StudentCalendar() {
     </div>
 
     {/* Lectures */}
-    {filteredLectures.length === 0 ? (
-      <p>No lectures found.</p>
-    ) : (
-      <div className="lecture-cards">
-        {filteredLectures.map((lec, idx) => (
-          <div key={idx} className="lecture-card">
-            <p><strong>{lec.course}</strong> ({lec.department} - Level {lec.level})</p>
-            <p>{lec.venue} | {lec.date} | {lec.start} – {lec.end}h</p>
-          </div>
-        ))}
+{filteredLectures.length === 0 ? (
+  <p>No lectures found.</p>
+) : (
+  <div className="lecture-cards">
+    {filteredLectures.map((lec, idx) => (
+      <div key={idx} className="lecture-card">
+        <p>
+          <strong>{lec.course}</strong> ({lec.department} - Level {lec.level})
+        </p>
+        <p>
+          {lec.venue} | {lec.date} | {lec.start} – {lec.end}h
+        </p>
       </div>
-    )}
+    ))}
   </div>
-);
+)}
