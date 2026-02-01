@@ -1,14 +1,16 @@
 // src/api.js
 
+const BASE_URL = "https://science-scheduler.onrender.com";
+
 export async function fetchVenues() {
-  const res = await fetch("https://YOUR-BACKEND.onrender.com/api/venues");
+  const res = await fetch(`${BASE_URL}/api/venues`);
   const data = await res.json();
   return data;
 }
 
 export async function scheduleLecture(lectureData, token) {
   const res = await fetch(
-    "https://YOUR-BACKEND.onrender.com/api/lecturer/lectures",
+    `${BASE_URL}/api/lecturer/lectures`,
     {
       method: "POST",
       headers: {
@@ -19,4 +21,4 @@ export async function scheduleLecture(lectureData, token) {
     }
   );
   return res.json();
-}	
+}
