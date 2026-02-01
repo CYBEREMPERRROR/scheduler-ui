@@ -9,7 +9,7 @@ export default function LecturerForm() {
     course: "",
     venue: "",
     date: "",
-    start_time: "",
+    start: "",
     end_time: "",
     department: "",
     level: "",
@@ -59,7 +59,7 @@ export default function LecturerForm() {
           course: "",
           venue: "",
           date: "",
-          start_time: "",
+          start: "",
           end_time: "",
           department: "",
           level: "",
@@ -143,8 +143,8 @@ export default function LecturerForm() {
           Start Time:
           <input
             type="number"
-            name="start_time"
-            value={form.start_time}
+            name="start"
+            value={form.start}
             onChange={handleChange}
             required
           />
@@ -176,7 +176,7 @@ export default function LecturerForm() {
                 {lec.level})
               </p>
               <p>
-                {lec.venue} | {lec.date} | {lec.start_time} – {lec.end_time}h
+                {lec.venue} | {lec.date} | {lec.start} – {lec.end_time}h
               </p>
             </div>
           ))
@@ -185,3 +185,4 @@ export default function LecturerForm() {
     </div>
   );
 }
+
