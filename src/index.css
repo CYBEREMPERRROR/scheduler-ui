@@ -1,18 +1,19 @@
 :root {
   /* Primary theme */
-  --primary: #0B3D2E;
-  --accent: #C9A227;
+  --primary: #0B3D2E;     /* Deep green */
+  --accent: #C9A227;      /* Gold */
 
-  /* Extended greens */
+  /* Variants */
   --green-mid: #145a43;
   --green-light: #1f7a5a;
 
   /* Backgrounds */
-  --bg: #F4F6F5;
+  --bg: #F4F6F5;          /* Light background */
   --card: #FFFFFF;
 
   /* Text */
   --text: #1A1A1A;
+  --text-muted: #555;
 }
 
 * {
@@ -20,8 +21,15 @@
   font-family: 'Segoe UI', system-ui, sans-serif;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
   background-color: var(--bg);
   color: var(--text);
 }
+
