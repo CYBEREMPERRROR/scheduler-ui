@@ -1,9 +1,9 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import LecturerForm from "./components/LecturerForm";
 import StudentCalendar from "./components/StudentCalendar";
 import Header from "./components/Header";
-import "./cards.css"; // landing page card styles
+import "./cards.css";
 
 // Landing page with role selection
 function Landing() {
@@ -26,16 +26,15 @@ function Landing() {
   );
 }
 
-// Main App component
 export default function App() {
   return (
-    <Router>
+    <>
       <Header />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/lecturer" element={<LecturerForm />} />
         <Route path="/student" element={<StudentCalendar />} />
       </Routes>
-    </Router>
+    </>
   );
 }
