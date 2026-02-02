@@ -9,7 +9,16 @@ export default function StudentCalendar() {
   useEffect(() => {
     fetch("https://science-scheduler.onrender.com/lectures")
       .then(res => res.json())
-      .then(data => setLectures(data))
+      .then(data => {
+  const now = new Date();
+
+  const activeLectures = data.filter(lec => {
+    const lectureEnd = new Date(`${lec.date}T${lec.end_time}`);
+    return lectureEnd > now;
+  });
+
+  setLectures(activeLectures);
+})
       .catch(err => console.error("Failed to fetch lectures", err));
   }, []);
 
@@ -65,7 +74,7 @@ export default function StudentCalendar() {
               <strong>{lec.course}</strong> ({lec.department} - Level {lec.level})
             </p>
             <p>
-              {lec.venue} | {lec.date} | {lec.start} – {lec.end}h
+              {lec.venue} | {lec.date} | {lec.start} – {lec.end_time}h
             </p>
           </div>
         ))}
