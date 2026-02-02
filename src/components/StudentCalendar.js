@@ -13,7 +13,8 @@ export default function StudentCalendar() {
   const now = new Date();
 
   const activeLectures = data.filter(lec => {
-    const lectureEnd = new Date(`${lec.date}T${lec.end_time}`);
+    const lectureDate = lec.date.split("T")[0];
+const lectureEnd = new Date(`${lectureDate}T${lec.end_time}`);
     return lectureEnd > now;
   });
 
