@@ -37,6 +37,10 @@ export default function StudentCalendar() {
         <option value="CS">Computer Science</option>
         <option value="PHY">Physics</option>
         <option value="CHEM">Chemistry</option>
+        <option value="MCB">Microbiology</option>
+        <option value="ZOL">Zoology</option>
+        <option value="BIO">Biology</option>
+        <option value="STA">Statistics</option>
       </select>
 
       <select value={level} onChange={e => setLevel(e.target.value)}>
@@ -45,6 +49,8 @@ export default function StudentCalendar() {
         <option value="200">200</option>
         <option value="300">300</option>
         <option value="400">400</option>
+        <option value="500">500</option>
+        <option value="600">600</option>
       </select>
     </div>
 
@@ -68,3 +74,4 @@ export default function StudentCalendar() {
   </div>
 );
 }
+
