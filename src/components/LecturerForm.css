@@ -1,35 +1,49 @@
 .lecturer-container {
-  padding: 24px;
+  padding: 32px;
   max-width: 900px;
   margin: 0 auto;
 }
 
+/* Form Card */
 .lecture-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 30px;
-  background-color: var(--card-green); /* green form card */
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 40px;
+  background-color: var(--green-mid); /* green form card */
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   color: var(--text-inverse);
 }
 
+/* Input & Select Fields */
 .lecture-form input,
 .lecture-form select {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  flex: 1 1 200px;
-  font-size: 0.95rem;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #aaa;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
 }
 
+.lecture-form input:focus,
+.lecture-form select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(201, 162, 39, 0.3); /* subtle gold glow */
+}
+
+/* Schedule Button */
 .lecture-form button {
-  padding: 10px 20px;
-  border-radius: 6px;
+  grid-column: 1 / -1; /* full width */
+  padding: 16px 0;
+  border-radius: 12px;
   background-color: var(--accent);
   color: var(--text-inverse);
+  font-size: 1.1rem;
+  font-weight: 600;
   border: none;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -37,25 +51,37 @@
 
 .lecture-form button:hover {
   background-color: var(--green-light);
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
 }
 
+/* Lecture Cards Grid */
 .lecture-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+  gap: 20px;
 }
 
+/* Lecture Card */
 .lecture-card {
-  padding: 16px;
-  background-color: var(--card-green);
+  padding: 20px;
+  background-color: var(--green-mid);
   color: var(--text-inverse);
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .lecture-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
 }
 
+/* Labels */
+.lecture-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-inverse);
+  font-size: 0.95rem;
+}
