@@ -1,19 +1,20 @@
 :root {
   /* Primary theme */
-  --primary: #0B3D2E;     /* Deep green */
-  --accent: #C9A227;      /* Gold */
+  --primary: #0B3D2E;     /* Deep green for accents */
+  --accent: #C9A227;      /* Gold for highlights */
 
-  /* Variants */
-  --green-mid: #145a43;
-  --green-light: #1f7a5a;
+  /* Card colors */
+  --card-green: #0B3D2E;  /* Lecturer/Student card backgrounds */
+  --card-white: #FFFFFF;
 
   /* Backgrounds */
-  --bg: #F4F6F5;          /* Light background */
-  --card: #FFFFFF;
+  --bg: #FFFFFF;           /* Overall page background */
+  --card: var(--card-white);
 
   /* Text */
-  --text: #1A1A1A;
-  --text-muted: #555;
+  --text: #1A1A1A;        /* Main text */
+  --text-muted: #555;      /* Secondary text */
+  --text-inverse: #FFFFFF; /* For text on green cards */
 }
 
 * {
@@ -32,4 +33,3 @@ body {
   background-color: var(--bg);
   color: var(--text);
 }
-

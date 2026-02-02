@@ -1,17 +1,22 @@
 .student-container {
   padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .filters {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 20px;
 }
 
-.filters input {
+.filters input,
+.filters select {
   padding: 10px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 0.95rem;
+  flex: 1 1 150px;
 }
 
 .lecture-cards {
@@ -22,7 +27,15 @@
 
 .lecture-card {
   padding: 16px;
-  background-color: var(--card);
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  background-color: var(--card-green); /* green cards */
+  color: var(--text-inverse);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+.lecture-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
