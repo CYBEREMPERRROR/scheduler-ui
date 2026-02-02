@@ -35,7 +35,7 @@ export default function LecturerFormWrapper() {
     );
   }
 
-  return <LecturerFormComponent />;
+  return <LecturerForm />;
 }
 
 function LecturerForm() {
