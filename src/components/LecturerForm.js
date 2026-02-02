@@ -38,7 +38,7 @@ export default function LecturerFormWrapper() {
   return <LecturerFormComponent />;
 }
 
-export default function LecturerForm() {
+function LecturerForm() {
   const [venues, setVenues] = useState([]);
   const [lectures, setLectures] = useState([]);
   const [form, setForm] = useState({
