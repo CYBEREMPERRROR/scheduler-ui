@@ -1,6 +1,42 @@
 import React, { useState, useEffect } from "react";
 import { fetchVenues } from "../api";
 import "./LecturerForm.css";
+export default function LecturerFormWrapper() {
+  const [hasAccess, setHasAccess] = useState(false);
+  const [keyInput, setKeyInput] = useState("");
+
+  const handleKeySubmit = () => {
+    // call backend to verify token
+    fetch("https://science-scheduler.onrender.com/api/lecturer/verify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token: keyInput }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.valid) setHasAccess(true);
+        else alert("Invalid access key!");
+      })
+      .catch(() => alert("Error verifying key"));
+  };
+
+  if (!hasAccess) {
+    return (
+      <div className="lecturer-access">
+        <h2>Enter Lecturer Access Key</h2>
+        <input
+          type="password"
+          value={keyInput}
+          onChange={(e) => setKeyInput(e.target.value)}
+          placeholder="Access Key"
+        />
+        <button onClick={handleKeySubmit}>Submit</button>
+      </div>
+    );
+  }
+
+  return <LecturerFormComponent />;
+}
 
 export default function LecturerForm() {
   const [venues, setVenues] = useState([]);
